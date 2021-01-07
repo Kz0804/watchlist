@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ name }}'s Watchlist</title>
+    <link rel="icon" href="{{url_for('static', filename='images/icon.png')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h2>{{ name }}'s Watchlist</h2>
+    <h2>
+        <img class="avatar" src="{{ url_for('static', filename='images/avatar.png') }}" alt="avatar">
+        {{ name }}'s Watchlist     
+    </h2>
+
     <p>{{ movies|length }} Titles</p>
-    <ul>
+
+    <ul class="movie-list">
         {% for movie in movies %}
         <li>
             {{ movie.title }} - {{ movie.year }}
         </li>
         {% endfor %}
     </ul>
+
+    <img class="totoro" src="{{ url_for('static', filename='images/totoro.gif') }}" alt="totoro">
+    
     <footer>
         <small>&copy; 2020 <a href="https://localhost:5000/index">Kevin Zhu</a></small>
     </footer>
